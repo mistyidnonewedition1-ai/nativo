@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Palette « azulejo » : encre bleu nuit, bleu cobalt, jaune soleil. Valeurs RGB pour Tailwind. */
+:root {
+  --bg: 245 246 250; --surface: 255 255 255; --ink: 20 24 43; --muted: 98 106 130;
+  --line: 218 222 233; --accent: 43 89 195; --accent-ink: 255 255 255; --sun: 242 177 52; --danger: 192 40 40;
+  --scale: 1;
+}
+[data-theme="dark"] {
+  --bg: 14 17 30; --surface: 24 28 46; --ink: 236 239 248; --muted: 154 162 186;
+  --line: 44 50 76; --accent: 122 162 255; --accent-ink: 14 17 30; --sun: 245 192 82; --danger: 255 128 128;
+}
+[data-contrast="high"] { --line: 20 24 43; --muted: 50 56 80; }
+[data-theme="dark"][data-contrast="high"] { --line: 236 239 248; --muted: 214 220 240; }
+
+html { font-size: calc(16px * var(--scale)); }
+body { @apply bg-bg text-ink font-sans antialiased; }
+:focus-visible { outline: 3px solid rgb(var(--sun)); outline-offset: 2px; }
+
+[data-motion="reduce"] *, [data-motion="reduce"] *::before, [data-motion="reduce"] *::after {
+  animation: none !important; transition: none !important; scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+@layer components {
+  .btn { @apply inline-flex min-h-11 items-center justify-center rounded-xl px-5 font-semibold transition-colors; }
+  .btn-primary { @apply btn bg-accent text-accent-ink hover:opacity-90; }
+  .btn-ghost { @apply btn border border-line hover:bg-line/40; }
+  .field { @apply min-h-11 w-full rounded-xl border border-line bg-surface px-4; }
+}

@@ -1,0 +1,23 @@
+#code aura plus phase les voici 
+1	Monorepo, Docker, schéma Prisma, auth, design system, onboarding	Compte + parcours d'accueil
+2	Test de niveau adaptatif, profil de compétences, dashboard	Accueil personnalisé
+3	Leçons + exercices + SRS vocabulaire + Word Hunter	Boucle d'apprentissage complète
+4	AIProvider + conversation (modes Normal/Professeur) + scénarios	Parler avec Carlos, Sofía…
+5	AudioProvider + laboratoire de prononciation + shadowing	Pratique orale
+6	Immersion (embeds), Real Life Feed, expressions idiomatiques	« Comprendre les natifs »
+7	Chansons, films, Nativo Mode, gamification, Premium	Fonctionnalités avancées
+
+ainsi voici les diffrente couche 
+Couche	Choix	                Pourquoi
+Monorepo	pnpm + Turborepo	Types partagés front/back, builds rapides
+Frontend	Next.js (App Router), React, TypeScript, Tailwind, shadcn/ui	Mobile-first, SSR, écosystème mature, dark/light mode simple
+Backend	Fastify + TypeScript + Zod	Léger, rapide, validation stricte, streaming pour le chat IA
+Base de données	PostgreSQL + Prisma	Relations riches, migrations typées
+Cache et rate limiting	Redis	Sessions, limites par plan, files d'attente
+Auth	Auth.js (credentials + OAuth) avec sessions en cookies httpOnly	Solution éprouvée, pas de gestion maison des mots de passe
+Stockage	S3-compatible (MinIO en local)	Enregistrements audio, assets de contenu
+IA	AIProvider (Anthropic, OpenAI, mock)	Changement de fournisseur par configuration
+Audio	AudioProvider : STT, TTS, analyse de prononciation	Remplaçable plus tard
+Contenu	CMS interne : tables Prisma + validation Zod + import JSON/CSV	Ajout facile de leçons, vidéos et expressions
+Tests	Vitest + Playwright	Moteur de progression testé unitairement
+Dev	Docker Compose (Postgres, Redis, MinIO)	pnpm dev fonctionne sans API payante

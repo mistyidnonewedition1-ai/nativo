@@ -1,0 +1,7 @@
+{ "name": "@nativo/api", "version": "0.1.0", "private": true, "type": "module",
+  "scripts": { "dev": "tsx watch --env-file=.env src/server.ts", "start": "tsx --env-file=.env src/server.ts", "typecheck": "tsc --noEmit" },
+  "dependencies": {
+    "@fastify/cookie": "^11.0.0", "@fastify/cors": "^10.0.0", "@fastify/helmet": "^13.0.0",
+    "@fastify/rate-limit": "^10.0.0", "@nativo/db": "workspace:*", "@nativo/content": "workspace:*", "@nativo/learning-engine": "workspace:*", "@nativo/shared": "workspace:*",
+    "argon2": "^0.41.1", "fastify": "^5.2.0", "zod": "^3.24.0" },
+  "devDependencies": { "@types/node": "^22.10.0", "tsx": "^4.19.0" } }
